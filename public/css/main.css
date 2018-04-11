@@ -1,0 +1,33 @@
+body {
+  background: url(https://source.unsplash.com/random);
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.center-container {
+  width: 350px;
+  margin: auto;
+}
+
+.circular-image {
+  background-color: white;
+  border-radius: 100%;
+  height: 120px;
+  width: 120px;
+}
+
+.circular-image img {
+  width: 80px;
+  margin-top: 15px;
+}
+
+.margin-auto {
+  margin: 50px auto;
+}
+
+.container-data {
+  background-color: #efebec;
+  padding: 28px;
+  border-radius: 5px;
+}
