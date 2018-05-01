@@ -4,7 +4,7 @@ $(document).ready(function () {
   let longitude;
   let $temperature = $('#temperature');
 
-  const weatherIcons = ['clear', 'cloudy','icon', 'partly-cloudy-day', 'partly-cloudy-night'];
+  const weatherIcons = ['clear','clear-night', 'cloudy','icon', 'partly-cloudy-day', 'partly-cloudy-night'];
 
   // Función para acceder al api DarkSky
   let getApiWheater = (data) => {
@@ -22,7 +22,7 @@ $(document).ready(function () {
     $('#humidity').text(humidity);
     $('#description').text(description);
     $('#weather-box').prepend(`
-      <img src=${'../assets/images/' + summaryDesc + '.png'} alt=${summaryDesc}/>
+      <img src=${'../assets/images/' + currentlyWheater.icon + '.png'} alt=${summaryDesc}/>
    `);
 
     // Week vista
