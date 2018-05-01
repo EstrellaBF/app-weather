@@ -26,8 +26,34 @@ body {
   margin: 50px auto;
 }
 
-.container-data {
+.container-data, .container-data-week {
   background-color: #efebec;
-  padding: 28px;
   border-radius: 5px;
+  padding: 1em;
+  margin: 1em 0;
 }
+
+.container-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-data img {
+  width: 25%;
+}
+
+.container-data-week h3, .container-data-week p {
+  display: inline-block;
+}
+
+.container-data-week h3 {
+  font-size: 1.5rem;
+}
+
+.container-data-week img {
+  width: 15%;
+  margin-right: 2.5em;
+}
+

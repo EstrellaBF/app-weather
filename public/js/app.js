@@ -4,44 +4,47 @@ $(document).ready(function () {
   let longitude;
   let $temperature = $('#temperature');
 
+  const weatherIcons = ['clear', 'cloudy','icon', 'partly-cloudy-day', 'partly-cloudy-night'];
+
   // Función para acceder al api DarkSky
   let getApiWheater = (data) => {
+    data.flags.units = 'si'; //pasando a celsius
+    console.log(data)
+    // console.log(data); //{latitude: -12.0329985, longitude: -77.0692949, timezone: "America/Lima", currently: {…}, hourly: {…}, …}
     let currentlyWheater = data.currently;
-    // console.log(currentlyWheater.temperature);
-    let temperatureFarenheit = currentlyWheater.temperature;
-    let temperatureCentigrados = parseInt(((temperatureFarenheit - 32) * 5 / (9.340)), 10);
-    // console.log(temperatureCentigrados); // 23° convertidos de farenheit
-    let summary = currentlyWheater.summary;
+    // console.log('currently wheater',currentlyWheater);
+    let summaryDesc = currentlyWheater.summary;
     let humidity = currentlyWheater.humidity;
-    let summary2 = data.daily.summary;
+    let description = data.daily.summary;
 
-    $('#temperature').text(`${temperatureCentigrados}º`);
-    $('#summary').text(summary);
+    $('#temperature').text((data.currently.temperature).toFixed(0) + '°');
+    $('#temperature-description').text(summaryDesc);
     $('#humidity').text(humidity);
-    $('#summary2').text(summary2);
+    $('#description').text(description);
+    $('#weather-box').prepend(`
+      <img src=${'../assets/images/' + summaryDesc + '.png'} alt=${summaryDesc}/>
+   `);
 
     // Week vista
-    // console.log(data);
-    console.log(data.daily.data);
-    // console.log(data.daily.data[0].time);
     var d = new Date();
     var n = d.getDay(data.daily.data[0].time);
-    // console.log(n);
+    console.log(d); // fecha y hora actual
 
-    let $daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-    $.each($daysOfWeek, function(index, val) {
-      console.log(index);
-        $('.current-wheater').append(`<div id="day-position-${index}"><p>${data.daily.data[index].summary}</p></div>`);
-        console.log(data.daily.data[index]); // desde la primera posición
-      if(n === index){
-        console.log(index);
-        // console.log(d.getDay(data.daily.data[index].time));
-        console.log(val); // la fecha en este caso Saturday
-        // $('#day-position-')
-      } else {
-        console.log('nada');
-      }
-    });
+    let daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    for(var i = 0; i < daysOfWeek.length; i++) {
+      console.log(daysOfWeek[i]);
+      $('#week-weather').append(
+        `<div class="center-container container-data-week" >
+        <img src=${'../assets/images/' + data.daily.data[i].icon + '.png'} alt=${data.daily.data[i].icon} />
+          <h3>${daysOfWeek[i]} : </h3>
+          <p>${(data.daily.data[i].temperatureHigh).toFixed(0)}° - ${(data.daily.data[i].temperatureLow).toFixed(0)}°</p>
+        </div>`
+      );
+    }
+    // console.log(daysOfWeek[d.getDay()]); //monday
+    // console.log(d.getDay()); //1
+
+
   };
 
   // En caso el usuario no acepte conocer ubicación
@@ -60,7 +63,7 @@ $(document).ready(function () {
       localStorage.long = longitude;
 
       var proxy = 'https://cors-anywhere.herokuapp.com/';
-      var apiLinkDS = `https://api.darksky.net/forecast/5ff2d970aaf45a79eb77da634a352045/${latitude},${longitude}`;
+      var apiLinkDS = `https://api.darksky.net/forecast/5ff2d970aaf45a79eb77da634a352045/${latitude},${longitude}?units=si`;
       $.ajax({
         url: proxy + apiLinkDS,
         success: getApiWheater
