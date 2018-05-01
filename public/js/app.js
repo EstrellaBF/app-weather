@@ -22,7 +22,7 @@ $(document).ready(function () {
     $('#humidity').text(humidity);
     $('#description').text(description);
     $('#weather-box').prepend(`
-      <img src=${'../assets/images/' + currentlyWheater.icon + '.png'} alt=${summaryDesc}/>
+      <img src=${'../assets/images/' + currentlyWheater.icon + '.png'} alt=${currentlyWheater.icon}/>
    `);
 
     // Week vista
