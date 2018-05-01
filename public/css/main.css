@@ -6,7 +6,7 @@ body {
 }
 
 .center-container {
-  width: 350px;
+  /* width: 350px; */
   margin: auto;
 }
 
@@ -44,11 +44,15 @@ body {
   width: 25%;
 }
 
+.container-data p {
+  font-weight: 600;
+}
+
 .container-data-week h3, .container-data-week p {
   display: inline-block;
 }
 
-.container-data-week h3 {
+.container-data-week h3, p {
   font-size: 1.5rem;
 }
 
@@ -57,3 +61,6 @@ body {
   margin-right: 2.5em;
 }
 
+.button-week-box a {
+  width: 100%;
+}
