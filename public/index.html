@@ -12,6 +12,13 @@
   <link rel="stylesheet" href="css/main.css">
   <!-- https://www.flaticon.com/packs/weather-53 -->
   <title>Document</title>
+  <!-- You can use Open Graph tags to customize link previews.
+    Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+  <meta property="og:url" content="https://estrellabf.github.io/app-weather/public/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="app-weather demo" />
+  <meta property="og:description" content="weather app" />
+  <meta property="og:image" content="https://www.your-domain.com/path/image.jpg" />
 </head>
 
 <body>
@@ -35,35 +42,35 @@
             <a class="waves-effect waves-light btn" id="predictions" href="views/week.html">
               <i class="material-icons right">cloud</i>Predicciones de la semana</a>
           </div>
-          
+
           <!-- Facebook share button -->
-          <div
-          class="fb-login-button"
-          data-show-faces="true"
-          data-width="200"
-          data-max-rows="1"
-          data-scope="publish_actions">
-        </div>
-        
-        <div>
-        This example creates a story on Facebook using the
-        <a href="https://developers.facebook.com/docs/reference/ogaction/og.likes">
-        <code>og.likes</code></a> API.  That story will just say
-        that you like an
-        <a href="http://techcrunch.com/2013/02/06/facebook-launches-developers-live-video-channel-to-keep-its-developer-ecosystem-up-to-date/">
-        article on TechCrunch</a>.  The story should only
-        be visible to you.
-        </div>
-        
-        <div>
-        <input
-          type="button"
-          value="Create a story with an og.likes action"
-          onclick="postLike();">
-        </div>
-        
-        <div id="result"></div>
-        
+          <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="large"
+            data-mobile-iframe="true">
+            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
+              class="fb-xfbml-parse-ignore">Compartir</a>
+          </div>
+
+          <!-- <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button&size=large&mobile_iframe=true&appId=249150542326294&width=99&height=28" width="99" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe> -->
+
+<!-- 
+          <div class="fb-login-button" data-show-faces="true" data-width="200" data-max-rows="1" data-scope="publish_actions">
+          </div> -->
+
+          <div>
+            This example creates a story on Facebook using the
+            <a href="https://developers.facebook.com/docs/reference/ogaction/og.likes">
+              <code>og.likes</code>
+            </a> API. That story will just say that you like an
+            <a href="http://techcrunch.com/2013/02/06/facebook-launches-developers-live-video-channel-to-keep-its-developer-ecosystem-up-to-date/">
+              article on TechCrunch</a>. The story should only be visible to you.
+          </div>
+
+          <div>
+            <input type="button" value="Create a story with an og.likes action" onclick="postLike();">
+          </div>
+
+          <div id="result"></div>
+
 
 
         </div>
