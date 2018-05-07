@@ -87,7 +87,5 @@ $(document).ready(function () {
     method: 'share',
     href: 'https://developers.facebook.com/docs/',
   }, function(response){ console.log(response)});
-
-
   
 });
