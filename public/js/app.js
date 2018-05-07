@@ -74,7 +74,7 @@ $(document).ready(function () {
     window.location.href = 'views/week.html';
   });
 
-  // // facebook share button
+  // facebook share button
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
