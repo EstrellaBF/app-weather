@@ -83,9 +83,14 @@ $(document).ready(function () {
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
-  FB.ui({
-    method: 'share',
-    href: 'https://developers.facebook.com/docs/',
-  }, function(response){ console.log(response)});
+
+  document.getElementById('btn').onclick = function() {
+    FB.ui({
+      method: 'share',
+      display: 'popup',
+      href: 'https://developers.facebook.com/docs/',
+    }, function(response){ console.log(response) });
+  }
+
   
 });
