@@ -9,7 +9,7 @@ $(document).ready(function () {
   // Función para acceder al api DarkSky
   let getApiWheater = (data) => {
     data.flags.units = 'si'; //pasando a celsius
-    console.log(data)
+    // console.log(data)
     // console.log(data); //{latitude: -12.0329985, longitude: -77.0692949, timezone: "America/Lima", currently: {…}, hourly: {…}, …}
     let currentlyWheater = data.currently;
     // console.log('currently wheater',currentlyWheater);
@@ -28,11 +28,11 @@ $(document).ready(function () {
     // Week vista
     var d = new Date();
     var n = d.getDay(data.daily.data[0].time);
-    console.log(d); // fecha y hora actual
+    // console.log(d); // fecha y hora actual
 
     let daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     for(var i = 0; i < daysOfWeek.length; i++) {
-      console.log(daysOfWeek[i]);
+      // console.log(daysOfWeek[i]);
       $('#week-weather').append(
         `<div class="center-container container-data-week" >
         <img src=${'../assets/images/' + data.daily.data[i].icon + '.png'} alt=${data.daily.data[i].icon} />
@@ -43,8 +43,6 @@ $(document).ready(function () {
     }
     // console.log(daysOfWeek[d.getDay()]); //monday
     // console.log(d.getDay()); //1
-
-
   };
 
   // En caso el usuario no acepte conocer ubicación
