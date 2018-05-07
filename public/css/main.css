@@ -61,6 +61,13 @@ body {
   margin-right: 2.5em;
 }
 
+.button-week-box {
+  text-align: center;
+}
 .button-week-box a {
   width: 100%;
+}
+
+.button-week-box div {
+  margin-top: 2em;
 }
