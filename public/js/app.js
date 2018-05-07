@@ -43,8 +43,6 @@ $(document).ready(function () {
     }
     // console.log(daysOfWeek[d.getDay()]); //monday
     // console.log(d.getDay()); //1
-
-
   };
 
   // En caso el usuario no acepte conocer ubicación
